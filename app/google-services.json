@@ -1,0 +1,32 @@
+{
+  "project_info": {
+    "project_number": "615337561174",
+    "project_id": "apotek-nosada-farma-daca8",
+    "storage_bucket": "apotek-nosada-farma-daca8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615337561174:android:3f8a48cb734e100a76bff7",
+        "android_client_info": {
+          "package_name": "com.example.apoteknosadafarma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-B1RWH0baNS08ZC42IsfBeP6vH2InHGI"
+        },
+        {
+          "current_key": "AIzaSyD5cKius6oECWIQUGXL6o-Gupkvcima5rw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
