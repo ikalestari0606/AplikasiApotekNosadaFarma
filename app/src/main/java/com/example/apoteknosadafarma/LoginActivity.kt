@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var requestQueue: RequestQueue
-    private val url = "http://192.168.0.108/nosadafarma/login.php"
+    private val url = "http://192.168.0.101/nosadafarma/login.php"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +36,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
+        // Kode untuk mengambil username dan password dari input pengguna
         val username = binding.edtUsername.text.toString().trim()
         val password = binding.edtPassword.text.toString().trim()
-
-        // Validasi input
-        if (username.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this@LoginActivity, "Username dan password harus diisi", Toast.LENGTH_SHORT).show()
-            return
-        }
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -54,12 +49,14 @@ class LoginActivity : AppCompatActivity() {
 
                     // Check if the response contains the "id_karyawan" key
                     if (jsonObject.has("id_karyawan")) {
-                        val idKaryawan = jsonObject.getInt("id_karyawan")
+                        val idKaryawan = jsonObject.getString("id_karyawan").toInt() // Ubah ke String dan kemudian ke Int
                         val nama = jsonObject.getString("nama")
                         // Simpan ID karyawan dan nama karyawan ke SharedPreferences
                         saveCredentialsToSharedPreferences(idKaryawan, nama)
-                        // Jika login berhasil, arahkan ke halaman Presensi
-                        val intent = Intent(this@LoginActivity, PresensiActivity::class.java)
+
+
+
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
@@ -75,16 +72,19 @@ class LoginActivity : AppCompatActivity() {
                 Log.e("Response", error.message ?: "Unknown error")
                 Toast.makeText(this@LoginActivity, "Gagal, terjadi kesalahan", Toast.LENGTH_SHORT).show()
             }) {
-            override fun getParams(): MutableMap<String, String> {
-                val params = HashMap<String, String>()
-                params["username"] = username
-                params["password"] = password
-                return params
-            }
+            override fun getParams(): MutableMap<String, String> =
+                HashMap<String, String>().apply {
+                    // Kode untuk menyimpan parameter permintaan, seperti username dan password
+                    put("username", username)
+                    put("password", password)
+                }
         }
 
         requestQueue.add(stringRequest)
     }
+
+
+
 
     // Fungsi untuk menyimpan ID karyawan dan nama karyawan ke SharedPreferences
     private fun saveCredentialsToSharedPreferences(idKaryawan: Int, nama: String) {

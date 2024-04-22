@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24" />
+    <item
+        android:id="@+id/menu_presensi"
+        android:title="Presensi"
+        android:icon="@drawable/baseline_drive_file_move_24" />
+    <item
+        android:id="@+id/menu_absensi"
+        android:title="Absensi"
+        android:icon="@drawable/baseline_email_24" />
+    <item
+        android:id="@+id/menu_gaji"
+        android:title="Gaji"
+        android:icon="@drawable/baseline_attach_money_24" />
+</menu>
