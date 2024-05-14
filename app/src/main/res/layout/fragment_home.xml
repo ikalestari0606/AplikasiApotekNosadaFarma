@@ -98,12 +98,7 @@
             android:layout_margin="8dp" />
 
         <!-- Submit Button -->
-        <Button
-            android:id="@+id/buttonSubmit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:layout_margin="8dp" />
+
     </LinearLayout>
 
 

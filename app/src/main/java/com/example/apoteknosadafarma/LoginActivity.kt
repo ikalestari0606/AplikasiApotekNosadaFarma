@@ -11,6 +11,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.apoteknosadafarma.Config.Companion.BASE_URL
 import com.example.apoteknosadafarma.databinding.ActivityLoginBinding
 import org.json.JSONException
 import org.json.JSONObject
@@ -19,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var requestQueue: RequestQueue
-    private val url = "http://192.168.0.101/nosadafarma/login.php"
+    private val url = "$BASE_URL/login.php"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

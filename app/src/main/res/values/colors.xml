@@ -12,5 +12,6 @@
 
     <color name="colorPrimary">#AD2730</color>
     <color name="colorTransparentPrimary">#80B53F4D</color>
+    <color name="red_transparent">#80FF0000</color>
 
 </resources>
